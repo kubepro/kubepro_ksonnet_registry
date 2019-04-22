@@ -35,8 +35,7 @@
 
     statefulset(
         namespace,
-        chImage,
-        chImageTag,
+        image,
         zkHost,
         zkPort,
     ):: {
@@ -88,7 +87,7 @@
               {
                 name: "clickhouse",
                 imagePullPolicy: "Always",
-                image: std.join(":", [chImage, chImageTag]),
+                image: image,
                 env: [
                   {
                     name: "CH_REPLICAS",
@@ -154,7 +153,7 @@
               {
                 name: "clickhouse-flush-dns",
                 imagePullPolicy: "Always",
-                image: std.join(":", [chImage, chImageTag]),
+                image: image,
                 env: [
                   {
                     name: "CH_USER",
