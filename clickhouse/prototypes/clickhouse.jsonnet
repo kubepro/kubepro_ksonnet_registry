@@ -12,7 +12,7 @@
 
 
 local k = import 'k.libsonnet';
-local clickhouse = import 'clickhouse/clickhouse.libsonnet';
+local clickhouse = import 'kubepro/clickhouse/clickhouse.libsonnet';
 
 local namespace = import 'param://namespace';
 local name = import 'param://name';
