@@ -2,12 +2,12 @@
 
   parts:: {
 
-    service(namespace):: {
+    service(namespace, name):: {
       apiVersion: "v1",
       kind: "Service",
       metadata: {
         namespace: namespace,
-        name: "clickhouse",
+        name: name,
       }
       spec: {
         type: "ClusterIP",
@@ -28,13 +28,14 @@
 
         clusterIP: "None",
         selector: {
-          app: "clickhouse",
+          app: name,
         },
       },
     },
 
     statefulset(
         namespace,
+        name,
         image,
         zkHost,
         zkPort,
@@ -44,10 +45,10 @@
       kind: "StatefulSet",
       metadata: {
         namespace: namespace,
-        name: "clickhouse",
+        name: name,
       },
       spec: {
-        serviceName: "clickhouse",
+        serviceName: name,
         replicas: 2,
         updateStrategy: {
           type: "RollingUpdate",
@@ -56,7 +57,7 @@
         template: {
           metadata: {
             labels: {
-              app: "clickhouse",
+              app: name,
             },
           },
           spec: {
@@ -72,7 +73,7 @@
                             key: "app",
                             operator: "In",
                             values: [
-                              "clickhouse",
+                              name,
                             ],
                           },
                         ],
@@ -85,7 +86,7 @@
             },
             containers: [
               {
-                name: "clickhouse",
+                name: "main",
                 imagePullPolicy: "Always",
                 image: image,
                 env: [
@@ -151,7 +152,7 @@
                 ],
               },
               {
-                name: "clickhouse-flush-dns",
+                name: "flush-dns",
                 imagePullPolicy: "Always",
                 image: image,
                 env: [
