@@ -1,32 +1,23 @@
-{
-  "name": "clickhouse",
-  "apiVersion": "0.0.1",
-  "kind": "ksonnet.io/parts",
-  "description": "Clickhouse is extremely fast columnar database",
-  "author": "kubepro team <team@kubepro.io>",
-  "contributors": [
-    {
-      "name": "Vladimir Kozhukalov",
-      "email": "vlad@kubepro.io"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kubepro/kubepro_ksonnet_registry"
-  },
-  "keywords": [
-    "clickhouse",
-    "database",
-    "analytics"
-  ],
-  "quickStart": {
-    "prototype": "io.ksonnet.pkg.clickhouse",
-    "componentName": "clickhouse",
-    "flags": {
-      "name": "clickhouse",
-      "namespace": "default"
-    },
-    "comment": "Run Clickhouse database"
-  },
-  "license": "Apache 2.0"
-}
+name: "clickhouse"
+apiVersion: "0.0.1"
+kind: "ksonnet.io/parts"
+description: "Clickhouse is extremely fast columnar database"
+author: "kubepro team <team@kubepro.io>"
+contributors:
+  - name: "Vladimir Kozhukalov"
+    email: "vlad@kubepro.io"
+repository:
+  type: "git"
+  url: "https://github.com/kubepro/kubepro_ksonnet_registry"
+keywords:
+  - clickhouse
+  - database
+  - analytics
+quickStart:
+  prototype: "io.ksonnet.pkg.clickhouse"
+  componentName: "clickhouse"
+  flags:
+    name: "clickhouse"
+    namespace: "default"
+  comment: "Run Clickhouse database"
+license: "Apache 2.0"
