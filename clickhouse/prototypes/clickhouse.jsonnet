@@ -2,7 +2,7 @@
 // @name io.ksonnet.pkg.clickhouse
 // @description Deploy Clickhouse database.
 // @shortDescription Deploy Clickhouse database.
-// @param namespace string 'default' Namespace where to deploy Clickhouse
+// @optionalParam namespace string 'default' Namespace where to deploy Clickhouse
 // @optionalParam chImage string 'kubepro/clickhouse' Clickhouse image
 // @optionalParam chImageTag string 'latest' Clickhouse image tag
 // @param zkHost string zkHost Zookeeper host
